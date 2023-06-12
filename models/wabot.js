@@ -1,10 +1,8 @@
 "use strict";
 
-const { STRING, NUMBER } = require("sequelize");
-
 module.exports = (sequelize, DataTypes) => {
-  const UserInstance = sequelize.define(
-    "UserInstance",
+  const WaBot = sequelize.define(
+    "WaBot",
     {
       name: DataTypes.STRING,
       key: DataTypes.STRING,
@@ -28,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return UserInstance;
+  return WaBot;
 };
