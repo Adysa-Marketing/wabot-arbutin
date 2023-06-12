@@ -1,6 +1,6 @@
 "use strict";
 
-const { STRING } = require("sequelize");
+const { STRING, NUMBER } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   const UserInstance = sequelize.define(
@@ -9,8 +9,17 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       key: DataTypes.STRING,
       status: {
-        DataTypes: STRING,
-        default: 1,
+        DataTypes: NUMBER,
+        defaultValue: 1,
+        allowNull: false,
+        validate: {
+          customValidator: (value) => {
+            const enums = [0, 1];
+            if (!enums.includes(value)) {
+              throw new Error("not a valid option");
+            }
+          },
+        },
       },
       remark: DataTypes.STRING,
     },
