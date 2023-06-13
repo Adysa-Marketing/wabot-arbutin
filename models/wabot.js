@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       key: DataTypes.STRING,
       status: {
-        DataTypes: NUMBER,
+        type: DataTypes.INTEGER,
         defaultValue: 1,
         allowNull: false,
         validate: {
