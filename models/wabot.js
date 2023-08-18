@@ -6,9 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       key: DataTypes.STRING,
+      phone: DataTypes.STRING,
       status: {
         type: DataTypes.INTEGER,
-        defaultValue: 1,
+        defaultValue: 0,
         allowNull: false,
         validate: {
           customValidator: (value) => {
