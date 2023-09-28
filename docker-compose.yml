@@ -1,0 +1,21 @@
+version: '2'
+services:
+  wabot_arbutin:
+    container_name: wabot_arbutin
+    build: 
+      context: .
+    env_file: ./.env
+    ports:
+      - $PORT:$PORT
+    environment:
+      - PORT=$PORT
+      - NODE_ENV=$NODE_ENV
+    networks:
+      adysaskinnet :
+        ipv4_address: 192.168.0.2
+    volumes:
+      - ./tokens:/usr/src/app/tokens
+
+networks:
+  adysaskinnet:
+    external: true
